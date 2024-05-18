@@ -41,12 +41,13 @@ def extract_jenkinsfile_data(url, path):
     "num_sh_commands": num_sh_commands
   }
 
-  # Printing data in JSON format
-  print(json.dumps(data, indent=4))
+  # Returning data instead of printing it
+  return data
 
 # Example usage
 url = "https://github.com/agill17/Infrastructure-as-Code.git"
 path = "Jenkinsfile/102/jenkinsfile"
-extract_jenkinsfile_data(url, path)
+result = extract_jenkinsfile_data(url, path)
+print(json.dumps(result, indent=4))
 
 
