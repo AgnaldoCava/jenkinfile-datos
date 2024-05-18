@@ -8,7 +8,7 @@ url = sys.argv[1]
 path = sys.argv[2]
 
 def extract_jenkinsfile_data(url, path):
-  jenkinsfile_url = f"{url}/raw/master/{path}"
+  jenkinsfile_url = f"{url}/raw/master/{path}/Jenkinsfile"
   response = requests.get(jenkinsfile_url)
   jenkinsfile_content = response.text
 
@@ -44,8 +44,8 @@ def extract_jenkinsfile_data(url, path):
   print(json.dumps(data, indent=4))
 
 # Example usage
-# url = "https://github.com/agill17/Infrastructure-as-Code.git"
-# path = "path/to/jenkinsfile"
+url = "https://github.com/agill17/Infrastructure-as-Code.git"
+path = "Jenkinsfile/102/jenkinsfile"
 extract_jenkinsfile_data(url, path)
 
 
