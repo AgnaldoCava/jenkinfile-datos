@@ -13,3 +13,4 @@ recibir_variables(url, path)
 print("Valores recibidos:")
 print("url:", url)
 print("path:", path)
+
