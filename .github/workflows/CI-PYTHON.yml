@@ -34,4 +34,4 @@ jobs:
         run: pip install -r requirements.txt
     
       - name: Execute python script
-        run: python parse_jenkinsfile.py --url "${{ github.event.inputs.url }}" --path "${{ github.event.inputs.path }}"
+        run: python Jenkins-parse-data.py --url "${{ github.event.inputs.url }}" --path "${{ github.event.inputs.path }}"
