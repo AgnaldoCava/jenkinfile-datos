@@ -1,11 +1,6 @@
 import sys
-url = sys.argv[1]
-path = sys.argv[2]
 import json
 import requests
-
-url = sys.argv[1]
-path = sys.argv[2]
 
 def extract_jenkinsfile_data(url, path):
   jenkinsfile_url = f"{url}/raw/master/{path}/Jenkinsfile"
@@ -13,19 +8,25 @@ def extract_jenkinsfile_data(url, path):
   jenkinsfile_content = response.text
 
   # Extracting stage name
-  stage_name = jenkinsfile_content.split("stage('")[1].split("'")[0]
+  stage_name = ""
+  if "stage('" in jenkinsfile_content:
+    stage_name = jenkinsfile_content.split("stage('")[1].split("'")[0]
 
   # Counting number of stages
   num_stages = jenkinsfile_content.count("stage(")
 
   # Extracting @Library name
-  library_name = jenkinsfile_content.split("@Library('")[1].split("'")[0]
+  library_name = ""
+  if "@Library('" in jenkinsfile_content:
+    library_name = jenkinsfile_content.split("@Library('")[1].split("'")[0]
 
   # Counting number of @Library
   num_libraries = jenkinsfile_content.count("@Library")
 
   # Extracting Sh commands
-  sh_commands = jenkinsfile_content.split("sh '")[1].split("'")[0]
+  sh_commands = ""
+  if "sh '" in jenkinsfile_content:
+    sh_commands = jenkinsfile_content.split("sh '")[1].split("'")[0]
 
   # Counting number of Sh commands
   num_sh_commands = jenkinsfile_content.count("sh '")
