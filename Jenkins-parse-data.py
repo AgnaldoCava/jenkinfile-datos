@@ -15,8 +15,11 @@ import git
 
 WORKSPACE_DIR="WORKSPACE"
 REPO_PATH = "jenkinsfile_repo"
-URL_JENKINSFILE = sys.argv[2]
-PATH_JENKINSFILE = sys.argv[3]
+URL_JENKINSFILE = ""
+PATH_JENKINSFILE = ""
+url  = sys.argv[2]
+path = sys.argv[3]
+
 
 def show_help():
     print("")
