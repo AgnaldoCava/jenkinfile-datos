@@ -53,14 +53,18 @@ import requests
 def extract_jenkinsfile_data(jenkinsfile_content):
   # Extracting stage name
   stage_name = ""
-  if "stage('" in jenkinsfile_content:
-    stage_name = jenkinsfile_content.split("stage('")[1].split("'")[0]
+  stages = []
+  for line in jenkinsfile_content.splitlines():
+    if "stage('" in line:
+      stage_name = line.split("stage('")[1].split("'")[0]
+      stages.append(stage_name)
   # Counting number of stages
   num_stages = jenkinsfile_content.count("stage(")
   # Extracting @Library name
   library_name = ""
   if "@Library('" in jenkinsfile_content:
-    library_name = jenkinsfile_content.split("@Library('")[1].split("'")[0]
+    library_names = [library.split("'")[0] for library in jenkinsfile_content.split("@Library('")[1:]]
+    library_name = ", ".join(library_names)
   # Counting number of @Library
   num_libraries = jenkinsfile_content.count("@Library")
   # Extracting Sh commands
