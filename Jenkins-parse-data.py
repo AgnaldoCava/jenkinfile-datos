@@ -12,11 +12,11 @@ import git
 # REPO_LIBRARY_PATH="global-pipeline-library"
 # URL_GLOBAL_TEMPLATES=f"https://{USERNAME}:{APP_PW}@bitbucket.org/corparchitecture/global-pipeline-templates.git"
 # REPO_TEMPLATES_PATH="global-pipeline-templates"
-URL_JENKINSFILE=""
-PATH_JENKINSFILE=""
+
 WORKSPACE_DIR="WORKSPACE"
 REPO_PATH = "jenkinsfile_repo"
-
+URL_JENKINSFILE = sys.argv[2]
+PATH_JENKINSFILE = sys.argv[3]
 
 def show_help():
     print("")
